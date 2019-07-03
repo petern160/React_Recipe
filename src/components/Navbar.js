@@ -18,7 +18,10 @@ function Users() {
 function Navbar({ search, getSearch, updateSearch }) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav
+        id="fixed-nav-top"
+        className="navbar navbar-expand-lg navbar-light bg-light navbar-fixed-top"
+      >
         <button
           className="navbar-toggler"
           type="button"
@@ -31,8 +34,8 @@ function Navbar({ search, getSearch, updateSearch }) {
           <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-          <a className="navbar-brand" href="#">
-            Hidden brand
+          <a className="navbar-brand nav-link disabled" href="#">
+            Recipe Finder
           </a>
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item active">
@@ -42,27 +45,16 @@ function Navbar({ search, getSearch, updateSearch }) {
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/Nutrition">
-                Link
+                Nutrtion Guide
               </a>
             </li>
             <li className="nav-item">
               <a className="nav-link disabled" href="#">
-                Disabled
+                Find the best recipes here
               </a>
             </li>
           </ul>
         </div>
-        <form onSubmit={getSearch} className="search-form">
-          <input
-            className="search-bar"
-            type="text"
-            value={search}
-            onChange={updateSearch}
-          />
-          <button className="search-button" type="submit">
-            Search
-          </button>
-        </form>
       </nav>
     </div>
   );

@@ -6,7 +6,8 @@
 }
 
 .search-form {
-  min-height: 10vh;
+  min-height: 30vh;
+  /* margin-top: 5rem; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,20 +15,42 @@
 
 
 .search-bar {
-  width: 50%;
+  width: 40%;
   border: none;
+  background: rgb(213, 219, 220);
   padding: 10px;
+  transition: ease-in-out all .5s;
+  outline: none;
+}
+
+.search-bar:hover {
+  background: rgb(142, 205, 216);
+
 }
 
 .search-button {
-  background: black;
+  background: rgb(50, 47, 47);
   border: none;
   padding: 10px 20px;
   color: orange
+}
+
+.search-button:hover {
+  opacity: 0.8;
 }
 
 .recipes {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+}
+
+.Logo {
+  color: red
+}
+
+#fixed-nav-top {
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
