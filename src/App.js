@@ -28,6 +28,7 @@ const App = () => {
     // when you have promise add await some data that does not come back instnatly
     const data = await response.json();
     setRecipes(data.hits);
+    console.log(data.hits);
   };
 
   const updateSearch = e => {
@@ -61,6 +62,7 @@ const App = () => {
           title={recipe.recipe.label}
           calories={recipe.recipe.calories}
           image={recipe.recipe.image}
+          ingredients={recipe.recipe.ingredients}
         />
       ))}
     </div>
