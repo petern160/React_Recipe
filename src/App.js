@@ -13,25 +13,44 @@ const App = () => {
   // const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
 
   const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("chicken");
 
   useEffect(() => {
     getRecipes();
-  }, []); // only runs once when page is rendered
+  }, [query]); // only runs once when page is rendered
 
   const getRecipes = async () => {
     // does not come instantly so you have to tell it to wait
     const response = await fetch(
-      `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`
+      `https://cors-anywhere.herokuapp.com/https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`
     );
     // when you have promise add await some data that does not come back instnatly
     const data = await response.json();
     setRecipes(data.hits);
   };
 
+  const updateSearch = e => {
+    // e.preventDefault();
+    setSearch(e.target.value);
+    console.log(search);
+  };
+
+  const getSearch = e => {
+    e.preventDefault();
+    setQuery(search);
+    setSearch("");
+  };
+
   return (
     <div className="App">
-      <form className="search-form">
-        <input className="search-bar" type="text" />
+      <form onSubmit={getSearch} className="search-form">
+        <input
+          className="search-bar"
+          type="text"
+          value={search}
+          onChange={updateSearch}
+        />
         <button className="search-button" type="submit">
           Search
         </button>
