@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import Recipe from "./components/Recipe";
 import "./App.css";
+import uuid from "uuid";
 require("dotenv").config();
 
 // console.log(typeof process.env.REACT_APP_APP_ID);
@@ -37,6 +38,7 @@ const App = () => {
       </form>
       {recipes.map(recipe => (
         <Recipe
+          key={uuid.v4()}
           title={recipe.recipe.label}
           calories={recipe.recipe.calories}
           image={recipe.recipe.image}
