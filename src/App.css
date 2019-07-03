@@ -1,10 +1,11 @@
 .App {
-  text-align: center;
+
 
   min-height: 100vh;
   background-image: radial-gradient(73% 147%, #EADFDF 59%, #ECE2DF 100%), radial-gradient(91% 146%, rgba(255, 255, 255, 0.50) 47%, rgba(0, 0, 0, 0.50) 100%);
   background-blend-mode: screen;
 }
+
 
 .search-form {
   min-height: 30vh;
@@ -14,8 +15,30 @@
   align-items: center;
 }
 
+.whole-container {}
+
 img {
+
   align-self: center
+}
+
+.card {
+  border-radius: 15px;
+  margin: 0 auto;
+  text-align: center;
+  /* Added */
+  /* text-align: center; */
+  display: flex;
+
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* Added */
+  margin-bottom: 1rem;
+  /* Added */
+}
+
+nav {
+  z-index: 1;
 }
 
 ul {
