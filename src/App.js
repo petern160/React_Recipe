@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
+import Recipe from "./components/Recipe";
 import "./App.css";
 require("dotenv").config();
 
@@ -9,6 +10,8 @@ const APP_ID = process.env.REACT_APP_APP_ID;
 const APP_KEY = process.env.REACT_APP_APP_KEY;
 const App = () => {
   // const exampleReq = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     getRecipes();
@@ -21,7 +24,7 @@ const App = () => {
     );
     // when you have promise add await some data that does not come back instnatly
     const data = await response.json();
-    console.log(data);
+    setRecipes(data.hits);
   };
 
   return (
@@ -32,6 +35,13 @@ const App = () => {
           Search
         </button>
       </form>
+      {recipes.map(recipe => (
+        <Recipe
+          title={recipe.recipe.label}
+          calories={recipe.recipe.calories}
+          image={recipe.recipe.image}
+        />
+      ))}
     </div>
   );
 };
