@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import logo from "./logo.svg";
 import Recipe from "./components/Recipe";
 import "./App.css";
+import Navbar from "./components/Navbar";
 import uuid from "uuid";
+import { Link, Route, BrowserRouter } from "react-router-dom";
 require("dotenv").config();
 
 // console.log(typeof process.env.REACT_APP_APP_ID);
@@ -45,6 +47,11 @@ const App = () => {
 
   return (
     <div className="App">
+      <Navbar
+        updateSearch={updateSearch}
+        getSearch={getSearch}
+        search={search}
+      />
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"
